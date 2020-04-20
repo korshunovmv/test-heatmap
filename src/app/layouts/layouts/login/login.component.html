@@ -1,0 +1,66 @@
+<ng-container *appProd><ng-container *appStandalone>
+    <div class="content" [class.holiday]="isHoliday">
+        <div class="sidebar sidebar--login" *ngIf="!isHoliday">
+            <div class="slider">
+                <div class="slider-inner">
+                    <ul class="slider-list">
+                        <li class="slider-item" *ngFor="let item of items; let idx = index;"
+                            ngClass="{{ activeSliderItem !== idx ? 'hidden' : '' }}">
+                            <div class="slider-image">
+                                <ui-icon letter="{{ item.icon }}"></ui-icon>
+                            </div>
+                            <h2 class="slider-title">{{ item.title }}</h2>
+                            <p class="slider-text">
+                                <span *ngFor="let str of item.text;">{{ str }}<br></span>
+                            </p>
+                        </li>
+                    </ul>
+
+                    <ol class="slider-indicators">
+                        <li *ngFor="let item of items; let idx = index;"
+                            class="slider-indicators-item" [class.active]="activeSliderItem === idx"
+                            (click)="onClickSliderItem(idx)">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar holiday sidebar--login" *ngIf="isHoliday">
+            <div class="sidebar-congratulation">
+                <h2 class="sidebar-congratulation__header">
+                    <div class="sidebar-congratulation__header-img-wrap">
+                        <img class="sidebar-congratulation__header-img"
+                            src="/assets/images/congratulation/header.png"
+                            alt="8 марта!"
+                            title="8 марта!">
+                    </div>
+                </h2>
+                <div class="sidebar-congratulation__text">
+                    <p class="sidebar-congratulation__paragraph">Поздравляем милых дам с весенним праздником. Желаем, чтобы жизнь была наполнена яркими красками и радостными событиями.</p>
+                    <p class="sidebar-congratulation__paragraph">Пусть желания становятся реальностью, а мечты сбываются.</p>
+                    <p class="sidebar-congratulation__text_additional">
+                        Счастья вам, и пусть оно никогда не заканчивается!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="login-wrapper">
+            <div class="login-container" [class.login-container--without-bg]="isWithoutBg">
+                <div class="login-inner">
+                    <div class="login-form">
+                        <router-outlet class="main"></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <iframe src="https://sbjs.group-ib.ru/sync_iframe.html" style="width: 0; height: 0; border: 0"></iframe>
+</ng-container></ng-container>
+
+
+<div *appEmbed>
+    <router-outlet class="main"></router-outlet>
+</div>
+<div *appDemo>
+    <router-outlet class="main"></router-outlet>
+</div>

@@ -1,0 +1,40 @@
+.parent {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.tooltip {
+    z-index: 100;
+    position: absolute;
+    cursor: default;
+}
+.tooltip-body {
+    position: relative;
+    font-size: 12px;
+    font-weight: normal;    // Выставляем толщину не зависящую от вызывающего элемента
+    line-height: 1;
+    padding-top: 6px;
+    padding-right: 8px;
+    padding-bottom: 6px;
+    padding-left: 8px;
+    transition-delay: 0.3s;
+    border-radius: 5px;
+}
+
+.arrow {
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    background-color: #8c8e86;
+    transform: rotate(45deg);
+    z-index: 2;
+    //width: 0;
+    //height: 0;
+    //border-left: 3px solid transparent;
+    //border-right: 3px solid transparent;
+    //border-bottom: 5px solid #8c8e86;
+}
+
+.arrow.top {
+    //transform: rotate(180deg);
+}

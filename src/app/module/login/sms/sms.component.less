@@ -1,0 +1,103 @@
+.form {
+    position: relative;
+
+    &__errors {
+        position: absolute;
+
+        ui-control-errors {
+            padding-left: 0;
+            margin-top: 0;
+        }
+    }
+}
+
+.sms-input-container {
+    padding-right: 0;
+}
+
+.sms-timer-container {
+    padding-left: 0;
+}
+
+ui-button.button.button-sms {
+    width: 100%;
+
+    @media only all and (max-width: 767px) {
+        width: auto;
+        min-width: 180px;
+    }
+}
+
+.login {
+    &__body {
+        margin-top: 43px;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-bottom: 16px;
+        margin-top: 54px;
+
+        &__code {
+            right: 0;
+        }
+    }
+}
+
+.border {
+    width: 100%;
+    height: 4px;
+    background-color: #e6e8e0;
+}
+
+.button-sms {
+    width: 100%;
+}
+
+.button-back {
+    color: #626262;
+    cursor: pointer;
+}
+
+.sms-note {
+    margin-top: 5px;
+}
+
+:host ::ng-deep ui-button.button-cancel {
+    .button {
+        height: 45px;
+        border-radius: 50px;
+        font-size: 12px;
+    }
+
+    @media only all and (max-width: 767px) {
+        min-width: 180px;
+        width: auto;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+}
+
+// костыль над стандартным ui-input, потому что в ui-input плейсхолдер прыгает вверх-вниз при смене высоты экрана Chrome
+// лечится отменой задания height
+:host ::ng-deep ui-input.input-sms {
+    input {
+        height: initial;
+        padding: 4px 0 11px;
+    }
+}
+
+.link-get-code {
+    display: block;
+}
+
+.sms-otp-code {
+    font-weight: bold;
+}

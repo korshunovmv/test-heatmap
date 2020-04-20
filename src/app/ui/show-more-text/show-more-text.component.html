@@ -1,0 +1,16 @@
+<div
+    class="show-more-text__text-container"
+    [ngClass]="{'cover-open':isCollapsed}"
+    #textBlock
+    [class.show-more-text__text-container--cutted]="isShowControls">
+    <div *ngIf="text" [innerHTML]="text"></div>
+    <div
+        class="show-more-text__cover"
+        [ngClass]="{'show-more-text__cover-open':isCollapsed}"
+        *ngIf="isShowControls" [class.show-more-text__cover--more]="!isCollapsed">
+        <div class="show-more-text__controls" *ngIf="showCollapsed">
+            <span class="show-more-text__ellipsis" *ngIf="!isCollapsed">...</span>
+        </div>
+    </div>
+</div>
+<span *ngIf="isShowControls" class="show-more-text__btn" (click)="toggle($event)" #toggleBtn>{{ btnText }}</span>

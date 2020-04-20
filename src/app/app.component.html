@@ -1,0 +1,4 @@
+sessionState: {{ appService.sessionState$ | async}}
+<button *ngIf="(appService.sessionState$ | async) === 'logged'" (click)="appService.logout()">Logout</button>
+<h1>{{title}}</h1>
+<router-outlet></router-outlet>

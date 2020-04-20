@@ -1,0 +1,54 @@
+<widget-page-header pageTitle="Подтверждение входа"></widget-page-header>
+
+<div class="form">
+    <div class="border"></div>
+    <p>
+        На ваш мобильный телефон отправлен код № {{ OTPNumber }}
+        для подтверждения входа. Введите код ниже:
+    </p>
+
+    <div class="row login__body">
+        <div class="sms-input-container col col--xs-7 col--sm-6" [class.col--sm-12]="smsErr">
+            <app-sms-input [formControl]="formControl"></app-sms-input>
+        </div>
+
+        <div class="sms-timer-container col col--xs-5 col--sm-6 text--xs-right">
+            <ng-container *ngIf="!loginBlocked">
+                <p *ngIf="!smsErr && !smsKeyLoad">
+                    <span class="color-remind" *ngIf="smsKeyValid" >Срок действия кода истекает через {{ smsValidity | secToMinSec:false }}</span>
+                    <span *ngIf="!smsKeyValid" >Время действия кода истекло</span>
+                </p>
+
+                <p *ngIf="smsKeyLoad">Отправка кода...</p>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="row form__errors">
+        <div class="col col--xs-10">
+            <ui-control-errors [errors]="errors.common"></ui-control-errors>
+        </div>
+    </div>
+
+    <div class="row row--xs-justify-between row--xs-bottom login__buttons">
+        <div class="col col--xs-4 col--sm-5 text-center text--xs-left">
+            <a class="button-back" (click)="cancel()">Отменить</a>
+        </div>
+        <div class="col col--xs-8 col--sm-7 text--xs-right login__buttons__code">
+            <ng-container *ngIf="!loginBlocked">
+                <a class="underlined link-get-code" *ngIf="!smsReload && !smsErr" (click)="getNewSms()">Получить новый код</a>
+                <div class="sms-note" *ngIf="smsKeyLoad">Отправка кода...</div>
+                <ng-container *ngIf="!smsKeyLoad">
+                    <div class="sms-note" *ngIf="smsReload">
+                        Повторный код вы можете
+                        запросить через {{ timerOpen | secToMinSec }}
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+</div>
+<!-- <ui-button
+  [routerLink]="['/cards']"
+>NEXT</ui-button> -->
+<!-- (buttonClick)="confirm()" -->

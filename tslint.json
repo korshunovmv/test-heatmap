@@ -1,0 +1,147 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    // v6 migrate
+    // "deprecation": true,
+    "rxjs-collapse-imports": true,
+    "rxjs-pipeable-operators-only": true,
+    "rxjs-no-static-observable-methods": true,
+    "rxjs-proper-imports": true,
+
+    // doc/lint/angular.md
+    "no-input-rename": true,
+    "no-output-rename": true,
+    "no-unused-css": true,
+    "use-life-cycle-interface": true,
+    "use-pipe-decorator": true,
+    "use-pipe-transform-interface": true,
+    "use-view-encapsulation": true,
+    "component-class-suffix": [true, "Component", "Controller"],
+    "component-selector": [true, "element", ["app", "ui", "layout", "widget", "chat", "personal", "corporate", "notcustomer", "dev", "reactive-form"], "kebab-case"],
+    "directive-class-suffix": [true, "Directive"],
+    "directive-selector": [true, "attribute", ["app", "ui", "layout", "widget", "chat", "matomo"], "camelCase"],
+    "use-host-property-decorator": true,
+    "use-input-property-decorator": true,
+    "use-output-property-decorator": true,
+
+    // doc/lint/typical-errors.md
+    "label-position": true,
+    "no-conditional-assignment": true,
+    "no-duplicate-super": true,
+    "no-duplicate-switch-case": true,
+    "no-duplicate-variable": [true, "check-parameters"],
+    "no-misused-new": true,
+    "no-switch-case-fall-through": true,
+    "no-unsafe-finally": true,
+    "radix": true,
+    "triple-equals": [true, "allow-null-check"],
+    "use-isnan": true,
+    "no-empty-interface": true,
+    "no-parameter-reassignment": false,
+    "banana-in-box": true,
+    "contextual-life-cycle": true,
+    "decorator-not-allowed": true,
+    "no-attribute-parameter-decorator": true,
+
+    // doc/lint/disabled.md
+    "match-default-export-name": false,
+    "no-angle-bracket-type-assertion": false,
+    "no-parameter-properties": false,
+    "no-default-export": false,
+    "no-submodule-imports": false,
+    "no-use-before-declare": false,
+    "strict-type-predicates": false,
+    "no-import-side-effect": false,
+    "i18n": false,
+    "no-forward-ref": false,
+
+    // doc/lint/utility.md
+    "no-duplicate-imports": true,
+    "no-mergeable-namespace": true,
+    "no-require-imports": true,
+    "import-blacklist": [true],
+    "no-console": [true, "debug", "exception", "info", "log", "profile", "profileEnd", "time", "timeEnd", "trace", "warn"], // debug +error exception +group +groupCollapsed +groupEnd info log profile profileEnd time timeEnd trace warn
+    "no-debugger": true,
+    "no-eval": true,
+    "no-implicit-dependencies": false,
+    "no-string-throw": true,
+    "ban-types": false,
+    "no-internal-module": true,
+    "no-namespace": [true, "allow-declarations"],
+    "no-reference": true,
+    "no-var-requires": true,
+
+    // doc/lint/code-style.md
+    "callable-types": true,
+    "class-name": true,
+    "interface-over-type-literal": true,
+    "no-reference-import": true,
+    "no-unnecessary-initializer": true,
+    "no-unnecessary-qualifier": true,
+    "number-literal-format": true,
+    "variable-name": [true, "ban-keywords"],
+    "prefer-const": true,
+    "no-shadowed-variable": true,
+    "no-var-keyword": true,
+
+    // doc/lint/rxjs-tslint-rules.md
+    "no-unused-variable": false,
+    "rxjs-no-unsafe-takeuntil": true,
+    "rxjs-no-subject-unsubscribe": true,
+    "rxjs-no-internal": true,
+    "rxjs-no-unsafe-catch": true,
+    "rxjs-no-unsafe-switchmap": true,
+    "rxjs-finnish": {"options": [{"functions": false, "methods": false, "parameters": false, "properties": false, "variables": false}], "severity": "error"},
+
+    "forin": false,
+    "member-access": false,
+    "member-ordering": [
+        true,
+        "static-before-instance",
+        "variables-before-functions"
+    ],
+    "no-arg": true,
+    "no-bitwise": false,
+    "no-construct": true,
+    "no-empty": false,
+    "no-string-literal": false,
+    "no-unused-expression": true,
+    "object-literal-sort-keys": false,
+    "unified-signatures": true,
+
+    // doc/lint/formatting.md
+    "encoding": true,
+    "file-header": false,
+    "file-name-casing": [true, "kebab-case"],
+    "import-spacing": true,
+    "no-consecutive-blank-lines": [true, 3],
+    "no-irregular-whitespace": true,
+    "no-trailing-whitespace": true,
+    "one-line": [true, "check-catch", "check-finally", "check-else", "check-open-brace", "check-whitespace"],
+    "quotemark": [true, "single", "avoid-escape", "avoid-template"],
+    "semicolon": [true, "always"],
+    "space-before-function-paren": [true, {"anonymous": "always", "named": "never", "asyncArrow": "always", "constructor": "never", "method": "never"}],
+    "space-within-parens": [true, 0],
+    "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-module", "check-separator", "check-rest-spread", "check-type", "check-type-operator", "check-preblock"],
+    "eofline": true,
+    "indent": [true, "spaces", 4],
+    "linebreak-style": false,
+    "max-file-line-count": [true, 1600],
+    "max-line-length": [true, 140],
+    "curly": true,
+    "no-invalid-template-strings": true,
+    "typedef-whitespace": [true, {"call-signature": "nospace", "index-signature": "nospace", "parameter": "nospace", "property-declaration": "nospace", "variable-declaration": "nospace"}, {"call-signature": "onespace", "index-signature": "onespace", "parameter": "onespace", "property-declaration": "onespace", "variable-declaration": "onespace"}],
+    "angular-whitespace": [true, "check-interpolation", "check-semicolon"],
+    "import-destructuring-spacing": true,
+
+    // doc/lint/comments.md
+    "comment-format": [true, "check-space"],
+    "completed-docs": false,
+    "jsdoc-format": false,
+    "no-redundant-jsdoc": false
+  },
+  "rulesDirectory": [
+    "codelyzer",
+    "rxjs-tslint"
+  ]
+}

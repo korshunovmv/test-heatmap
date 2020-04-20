@@ -1,0 +1,21 @@
+<!--<div  class="dropdown-item" *ngFor="let item of menu" (click)="action(item)" [attr.disabled]="item.disabled ? 'disabled' : null">-->
+    <!--<span *ngIf="!item.uploadFile">{{ item.label }}</span>-->
+    <!--<ui-upload (uploadChange)="onUpload($event, item)" class="light" *ngIf="item.uploadFile">{{ item.label }}</ui-upload>-->
+<!--</div>-->
+<div class="dropdown-item"
+    *ngFor="let item of menu"
+        [class.upload]="item.uploadFile"
+        [attr.disabled]="item.disabled ? 'disabled' : null"
+        (click)="action(item)">
+    <ng-container *ngIf="template">
+        <!-- <ng-container
+            *ngTemplateOutlet="template, context:{ $implicit: item.data }">
+        </ng-container> -->
+    </ng-container>
+    <ng-container *ngIf="!template">
+        <span *ngIf="!item.uploadFile">{{ item.label }}</span>
+        <!-- <ui-upload (uploadChange)="onUpload($event, item)" class="light" *ngIf="item.uploadFile">
+            {{ item.label }}
+        </ui-upload> -->
+    </ng-container>
+</div>

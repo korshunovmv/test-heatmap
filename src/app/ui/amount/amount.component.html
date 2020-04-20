@@ -1,0 +1,11 @@
+<span [style.font-weight]="!isBolding ? 'normal' : null"
+      [class.positive]="isPositive"
+      [class.negative]="isNegative"
+      [class.positive-sign]="showSign && isPositive"
+    ><span class="amount-sign {{ noColorizeClass }}">{{ signAmount }}</span
+    ><span class="amount-integer-part {{ noColorizeClass }}">{{ localAmount }}</span
+    ><span class="amount-decimal-part {{ noColorizeClass }}" *ngIf="displayDecimal">{{ decimalPartAmount ? divider + decimalPartAmount : "" }}</span
+    ><span class="amount-icon {{ noColorizeClass }}"><ui-icon *ngIf="currency" [letter]="currency"></ui-icon>
+    </span>
+</span>
+

@@ -1,0 +1,4 @@
+<button [type]="type" [tabindex]="tabindex" [disabled]="disabled" class="button" (click)="onClick($event)" (mousedown)="onMouseDown($event)">
+    <div class="button-content"><ng-content></ng-content></div>
+</button>
+<ui-control-errors *ngIf="errors?.length" [errors]="errors"></ui-control-errors>

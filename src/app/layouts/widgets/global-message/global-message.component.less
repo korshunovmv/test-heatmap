@@ -1,0 +1,27 @@
+:host{
+    background-color: #ffffff;
+    color:#f05624;
+    display: table;
+    width: 100%;
+
+};
+
+:host > div{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    min-height: 5.125em;
+}
+
+.message_content{
+    display: table;
+    margin: auto;
+    max-width: 1024px;
+    min-width: 320px;
+    & div{
+        padding: 10px 0;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+}

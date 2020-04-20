@@ -1,0 +1,53 @@
+:host ::ng-deep ui-button.scroll-button {
+    position: fixed;
+    right: 30px;
+    bottom: 116px;
+    z-index: 10;
+    height: 55px;
+    width: 55px;
+    text-transform: uppercase;
+
+    @media (min-width: 1600px) {
+        left: ~"calc(1300px + (100vw - 1295px) / 2)";
+        right: auto;
+    }
+
+
+    @media all and (max-width: 675px) {
+        bottom: 65px;
+    }
+
+    .button {
+        height: 55px;
+        max-width: 55px;
+        min-width: auto;
+        border-radius: 50%;
+        padding: 0;
+
+    }
+
+    .icon-im {
+        font-size: 22px;
+        line-height: 1;
+
+        &::before{
+            content: "\E92B"
+        }
+    }
+}
+
+.counter {
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    line-height: 21px;
+}
+
+.scroll-button_inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

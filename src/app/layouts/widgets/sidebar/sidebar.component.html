@@ -1,0 +1,72 @@
+<div class="sidebar" #sidebar>
+    <div class="sidebar-body" #body>
+        <ui-scrollbar class="ui-scrollbar">
+            <ul class="sidebar-menu-list" *ngIf="(userRole === 'corporate' && build !== 'skb') || userRole === 'personal'">
+                <ng-container *ngFor="let menuItem of (menuService.menuListSource | async)">
+                    <ng-container *ngIf="menuItem.matomo.object === 'reports'; else defaultMenu">
+                      reports
+                    </ng-container>
+                    <ng-template #defaultMenu>
+
+                        <!-- Меню без выпадающего списка -->
+                        <ng-container *ngIf="menuItem.path; else withoutPath" [ngSwitch]="menuItem.path">
+
+                            <ng-container *ngSwitchCase="'/reporting/activate'" >
+                                <ng-container *appBuild="'delo'">
+                                  reports
+                                </ng-container>
+                            </ng-container>
+
+                            <ng-container *ngSwitchDefault>
+                                <ng-container *appBuild="menuItem.build">
+                                    <li class="sidebar-menu-list__item"
+                                        [routerLink]="[menuItem.path]">
+                                        <ui-icon
+                                            [letter]="menuItem.icon"
+                                            [next]="!!menuItem.isNextIcon"
+                                            class="sidebar-menu-list__icon">
+                                        </ui-icon>
+                                        <span>{{ menuItem.title }}</span>
+                                    </li>
+                                </ng-container>
+                            </ng-container>
+
+                        </ng-container>
+
+                        <!-- Меню с выпадающим списком -->
+                        <ng-template #withoutPath>
+                            <li *ngIf="!menuItem.path" class="sidebar-menu-list__item" [class.is-active]="menuItem.isOpen">
+                                <div class="customer-select">
+                                    <div class="toggle-button"
+                                        (click)="menuItem.toggle()">
+                                        <ui-icon
+                                            [letter]="menuItem.icon"
+                                            [next]="!!menuItem.isNextIcon"
+                                            class="toggle-button__icon">
+                                        </ui-icon>
+                                        <span>{{ menuItem.title }}</span>
+                                        <span
+                                            class="toggle-button__caret"
+                                            [ngClass]="menuItem.isOpen ? 'icon-chewr_up_select' : 'icon-chewr_dwn_select'">
+                                        </span>
+                                    </div>
+                                    <div *ngIf="menuItem.isOpen && menuItem.subMenu === 'shops'">
+                                      shops
+                                    </div>
+                                    <div *ngIf="menuItem.isOpen && menuItem.subMenu === 'services'">
+                                      services
+                                    </div>
+                                    <div *ngIf="menuItem.isOpen && menuItem.subMenu === 'accounts'">
+                                    </div>
+                                </div>
+                            </li>
+                        </ng-template>
+                    </ng-template>
+                </ng-container>
+            </ul>
+        </ui-scrollbar>
+    </div>
+    <div class="sidebar-footer" #footer>
+      rates
+    </div>
+</div>

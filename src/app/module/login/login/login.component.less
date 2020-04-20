@@ -1,0 +1,136 @@
+:host .form-login ::ng-deep ui-input {
+    height: 60px;
+
+    .icon-delete {
+        display: none;
+    }
+}
+
+:host .form-login ::ng-deep ui-input input {
+    height: 60px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 62px;
+    filter: none;
+}
+
+:host .form-login ::ng-deep ui-input .control {
+    margin-bottom: 0;
+    .caps-lock-indicator {
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        color: #c2c2c2;
+        padding-left: 1px;
+        background-color: #ffffff;
+        transform: translateY(-50%);
+        cursor: default;
+        overflow: hidden;
+
+        &:empty::after {
+            content: 'CAPS LOCK';
+            display: flex;
+            align-items: center;
+            box-shadow: -1px 0px 4px 0px rgba(0, 0, 0, 0.08);
+            height: 22px;
+            padding-left: 3px;
+            padding-right: 8px;
+        }
+    }
+
+}
+
+:host .form-login ::ng-deep ui-input .icon--login,
+:host .form-login ::ng-deep ui-input .icon--password {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #e6e8e0;
+}
+
+:host .form-login ::ng-deep ui-input .icon--toggle-password {
+    font-size: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    span {
+        color: #e6e8e0;
+    }
+}
+
+.form-login{
+    @media (max-width: 768px) {
+        font-size: 17px;
+    }
+}
+
+.border {
+    width: 100%;
+    height: 4px;
+    background-color: #e6e8e0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.link-list {
+    padding-left: 12px;
+}
+
+.link-item {
+    margin-bottom: 3px;
+    text-align: right;
+    white-space: nowrap;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.errors {
+    margin-bottom: 15px;
+}
+
+.error {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.link-forget {
+    display: flex;
+    align-items: center;
+    height: 45px;
+
+    @media only all and (max-width: 767px) {
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+    &.registration {
+        height: 25px;
+    }
+}
+
+.message {
+    margin-bottom: 15px;
+}
+
+.message.light {
+    color: #808080;
+}
+
+.confirm-form-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

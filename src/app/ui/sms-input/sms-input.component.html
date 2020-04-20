@@ -1,0 +1,32 @@
+<form [formGroup]="form" class="sms-container">
+    <ng-container formArrayName="digits">
+        <div 
+            class="input-wrapper" 
+            *ngFor="let digit of digits.controls; let i = index"
+            (click)="onFocus($event, i)"
+        >
+            <input
+                [class.error]="error"
+                #myInput
+                maxlength="1"
+                [formControl]="digit.controls['val']"
+                type="number"
+                placeholder="*"
+                min="0"
+                max="9"
+                (keydown.backspace)="onBackSpace($event)"
+                (keydown.delete)="onBackSpace($event)"
+                (keydown.ArrowUp)="onArrow($event)"
+                (keydown.ArrowDown)="onArrow($event)"
+                (keydown.ArrowLeft)="onArrow($event)"
+                (keydown.ArrowRight)="onArrow($event)"
+                (keydown.space)="onSpace($event)"
+                (keydown.home)="onHome($event)"
+                (keydown.end)="onEnd($event)"
+                (keydown)="onLocalKeyDown($event)"
+                (paste)="onPaste($event)"
+                (focus)="onFocus($event, i)"
+            >
+        </div>
+    </ng-container>
+</form>

@@ -1,0 +1,164 @@
+<!-- class "disabled", чтобы можно было управлять стилями всего содержимого этого контрола, а не только input внутри него -->
+<div class="control" [class.disabled]="disabled">
+    <div #placeholderRef *ngIf="withPlaceholderLabel && placeholder" class="placeholder" [ngClass]="{'error':error || errors && errors.length > 0}">
+        <ng-container *ngIf="value!=null && value!==''|| customPlaceholder || focus">
+            {{ label || placeholder }}
+        </ng-container>
+    </div>
+
+    <div class="input-wrapper">
+
+        <div *ngIf="tooltip"
+             class="icon right"
+             [class.focus]="focus"
+             #icon>
+            <ui-tooltip [text]="tooltip" posX="right">
+                <ui-icon letter="question"></ui-icon>
+            </ui-tooltip>
+        </div>
+
+
+        <div *ngIf="type =='find'"
+             class="icon right"
+             [class.focus]="focus"
+             #icon>
+            <ui-icon *ngIf="value" [letter]="'search_cross'" style="cursor: pointer" (click)="clearValue()"></ui-icon>
+            <ui-icon *ngIf="!value" [letter]="'search'"></ui-icon>
+        </div>
+
+        <div *ngIf="value && type == 'find-contragents'"
+             class="icon right"
+             [class.focus]="focus"
+             (click)="clickForImg()"
+             #icon>
+            <ui-icon letter="search_cross"></ui-icon>
+        </div>
+
+        <div *ngIf="!value && type =='find-contragents'"
+             class="icon right"
+             [class.focus]="focus"
+             #icon>
+            <ui-icon letter="search"></ui-icon>
+        </div>
+
+        <div *ngIf="loginIcon" class="icon icon--login left" #icon>
+            <ui-icon letter="user"></ui-icon>
+        </div>
+
+        <div *ngIf="passwordIcon" class="icon icon--password left" #icon>
+            <ui-icon letter="password"></ui-icon>
+        </div>
+
+        <div *ngIf="togglePasswordIcon" class="icon icon--toggle-password right" #icon (click)="togglePassword()">
+            <ui-icon letter="invisible" [class.is-hidden]="visiblePassword"></ui-icon>
+            <ui-icon letter="visible" [class.is-hidden]="!visiblePassword"></ui-icon>
+        </div>
+
+        <div *ngIf="type == 'currency'"
+             class="icon right"
+             [class.hasFloatLabel]="withPlaceholderLabel && placeholder && withIcon"
+             #icon>
+            <span>
+                <span class="grey-icon icon-{{ currencyType | lowercase }}"></span>
+            </span>
+        </div>
+        <div class="icon right icon-input" *ngIf="type =='RUB'" [class.hasFloatLabel]="withPlaceholderLabel && placeholder && withIcon" #icon>
+        <span>
+            <span class="icon-rub"></span>
+        </span>
+        </div>
+        <div class="icon right icon-input" *ngIf="type =='USD'" [class.hasFloatLabel]="withPlaceholderLabel && placeholder && withIcon" #icon>
+        <span>
+            <span class="icon-usd"></span>
+        </span>
+        </div>
+        <div class="icon right icon-input" *ngIf="type =='EUR'" [class.hasFloatLabel]="withPlaceholderLabel && placeholder && withIcon" #icon>
+        <span>
+            <span class="icon-eur"></span>
+        </span>
+        </div>
+        <div class="icon right hasFloatLabel" *ngIf="enabledDeletion" #icon>
+        <span>
+            <span class="icon-delete" *ngIf="value" (click)="clearValue()"></span>
+        </span>
+        </div>
+
+        <div class="icon right hasFloatLabel" *ngIf="customIcon" (click)="onCustomIconClick.emit()">
+            <ui-icon [letter]="customIcon"></ui-icon>
+        </div>
+
+        <div *ngIf="percent" class="icon percent right" #icon>
+            <span class="icon-percent"></span>
+        </div>
+
+        <div *ngIf="imgUrl" class="image icon right" #icon>
+            <img [src]="imgUrl">
+        </div>
+
+        <input *ngIf="!reactiveForm"
+               #localInput
+               (keyup.enter)="onEnter()"
+               (keydown)="onLocalKeyDown($event)"
+               [placeholder]="getPlaceholder()"
+               [readonly]="readonly"
+               [maxlength]="maxlength"
+               [minLength]="minLength"
+               [(ngModel)]="value"
+               [ngClass]="type"
+               [class.with-icon]="hasIconClass"
+               [class.error]="error || errors && errors.length > 0"
+               (blur)="onBlurInput()"
+               (paste)="onPasteEvent($event)"
+               (drop)="onDropEvent($event)"
+               (mouseup)="onMouseUp($event)"
+               (focus)="onFocusInput($event)"
+               [required]="required"
+               [disabled]="disabled"
+               (focusout)="onFocusOut($event)"
+               (ngModelChange)="onChange($event)"
+               [uiTextMask]="mask"
+               [type]="_inputType">
+        <div [formGroup]="formGroup" *ngIf="reactiveForm">
+            <input #localInput
+                   (keyup.enter)="onEnter()"
+                   (keydown)="onLocalKeyDown($event)"
+                   (keyup)="onLocalKeyUp($event)"
+                   [placeholder]="getPlaceholder()"
+                   [readonly]="readonly"
+                   [maxlength]="maxlength"
+                   [minLength]="minLength"
+                   formControlName="field"
+                   [ngClass]="type"
+                   [class.error]="error || errors && errors.length > 0"
+                   [class.with-icon]="hasIconClass"
+                   (blur)="onBlurInput()"
+                   (paste)="onPasteEvent($event)"
+                   (drop)="onDropEvent($event)"
+                   (mouseup)="onMouseUp($event)"
+                   (focus)="onFocusInput($event)"
+                   (focusout)="onFocusOut($event)"
+                   [required]="required"
+                   [disabled]="disabled"
+                   [uiTextMask]="mask"
+                   [type]="_inputType">
+        </div>
+    </div>
+
+    <!--<div class="counter" *ngIf="counter && maxlength">{{ valueLength }}/{{maxlength }}</div>-->
+    <div *ngIf="counter && maxlength"
+        class="counter"
+        [class.warning]="valueLength < minLength"
+        [class.success]="valueLength >= minLength">
+        <div class="counter__val" *ngIf="counterText">
+            {{ counterText }}
+        </div>
+        <div class="counter__val">
+            {{ valueLength }}/{{ maxlength }}
+        </div>
+    </div>
+
+    <ui-control-errors *ngIf="errors?.length" [errors]="errors"></ui-control-errors>
+    <div *ngIf="hint">
+        <ui-show-more-text class="hint" [text]="hint" [lineCount]="hintLineCount || 1"></ui-show-more-text>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div #content class="content">
+    <widget-sidebar *appStandalone
+                    [ngClass]="{'widget-sidebar--isOpen': showSidebar}"
+                    #sidebar
+                    [useProductsV2]="true"
+                    (click)="onClickSidebar($event)"
+    ></widget-sidebar>
+    <div class="container">
+        <widget-global-message></widget-global-message>
+        <router-outlet class="main"></router-outlet>
+    </div>
+    <!-- <ng-container *appStandalone>
+        <ng-container widgetComponent="right-sidebar-personal"></ng-container>
+    </ng-container> -->
+</div>
+<widget-scroll-to-top [hidden]="!isShowToTop"></widget-scroll-to-top>
+
+<!-- <ng-container *appStandalone>
+    <ng-container widgetComponent="right-sidebar-personal-mobile"></ng-container>
+</ng-container> -->

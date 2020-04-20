@@ -1,0 +1,89 @@
+:host {
+    position: absolute;
+    overflow-y: auto;
+    min-width: 180px;
+    margin-top: 2px;
+    line-height: 1;
+    z-index: 10;
+    background-color: white;
+    transition-delay: 0.3s;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    ::ng-deep ui-upload {
+        vertical-align: middle;
+        padding: 14px 16px 14px 16px;
+        width: 100%;
+        min-height: auto;
+        min-width: auto;
+        text-align: left;
+        .button {
+            height: auto;
+            padding: 0;
+            border: none;
+            outline: none;
+            border-radius: 0;
+            user-select: none;
+            cursor: pointer;
+            overflow: hidden;
+            color: #3c3c3c;
+            background-color: transparent;
+        }
+    }
+    .dropdown-item {
+        &:hover {
+            ::ng-deep ui-upload {
+                .button {
+                    color: #9ca093;
+                }
+            }
+        }
+    }
+}
+
+.dropdown-item {
+    position: relative;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: left;
+    color: #3c3c3c;
+    &:not(.upload) {
+        padding: 14px 16px 14px 16px;
+    }
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 15px;
+        width: ~"calc(100% - 32px)";
+        height: 1px;
+        background-color: #e6e8e0;
+    }
+
+    &:first-child:before {
+        display: none;
+    }
+
+    &:hover:before {
+        background-color: transparent;
+    }
+
+    &:hover + .dropdown-item:before {
+        display: none;
+    }
+
+    &:hover:not(.item-null) {
+        //background-color: #fff7f7;
+        color: #9ca093;
+        transition: all 0.2s ease-in-out;;
+    }
+
+    &[disabled] {
+        cursor: default;
+        background-color: white;
+    }
+}

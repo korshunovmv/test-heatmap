@@ -1,0 +1,13 @@
+<div class="modal" [style.overflow]="isScroll ? 'auto' : 'none'">
+    <div *ngIf="closeOnCrossClick" class="modal-close" (click)="onClose()" title="Закрыть">
+        <ui-icon letter="search_cross"></ui-icon>
+    </div>
+    <div class="modal-header" *ngIf="windowTitle || innerHtmlWindowTitle">
+        <div *ngIf="windowTitle" class="modal-title">{{ windowTitle }}</div>
+        <div *ngIf="innerHtmlWindowTitle" class="modal-title" [innerHTML]="innerHtmlWindowTitle"></div>
+    </div>
+    <div class="modal-body">
+        <ng-content></ng-content>
+    </div>
+</div>
+<div class="modal-shadow" (click)="onClose(true)"></div>

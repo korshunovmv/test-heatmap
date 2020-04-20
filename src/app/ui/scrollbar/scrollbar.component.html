@@ -1,0 +1,11 @@
+<perfect-scrollbar *showItDevice="['desktop','tablet']" [disabled]="disabled">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+</perfect-scrollbar>
+
+<div class="scrollbar" *showItDevice="['mobile']">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+</div>
+
+<ng-template #content>
+    <ng-content></ng-content>
+</ng-template>

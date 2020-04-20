@@ -1,0 +1,187 @@
+
+<div class="section">
+
+    <div class="grid">
+        <div class="row row--sm-justify-end row--sm-mb">
+            <div class="col col--sm-4">
+                <div class="section-header">
+                    <div class="section-title">Карты</div>
+                </div>
+            </div>
+            <!-- <div class="col col--sm-2 text--xs-right">
+                <ui-button class="button-block" [routerLink]="['/card/card-production']">Выпустить карту</ui-button>
+            </div> -->
+<!--            <div class="col col&#45;&#45;sm-2 text&#45;&#45;xs-right">-->
+<!--                <ui-button class="button-block brand" [routerLink]="['/card-activation']" *appBuild="'delo'">Активировать карту</ui-button>-->
+<!--            </div>-->
+            <!--<div class="col col&#45;&#45;sm-3 text&#45;&#45;xs-right">-->
+                <!--<ui-button class="button-block brand no-geb" [routerLink]="['/rrs/new/card']" *appBuild="'delo'">Заявка на кредитную карту</ui-button>-->
+            <!--</div>-->
+        </div>
+    </div>
+        <!-- <div>
+            <ui-button class="light" [routerLink]="['/virtual-card/create']">Открыть виртуальную карту</ui-button>
+        </div> -->
+
+
+    <div class="section-body" style="background: #eeeeee;">
+        <div style="background: #eeeeee;">
+
+            <ng-container>
+                <div class="grid grid--container">
+                    <div class="collection-item header" style="font-size: 22px;padding-left: 6px;padding-top: 24px;padding-bottom: 24px;background: #eeeeee;">
+                        <div class="row row--sm-center" style="display: flex;align-items: center;flex-flow: row;justify-content: space-between;">
+                            <div class="col col--sm-6">Мои карты</div>
+                            <div class="col col--sm-6" style="display: flex;flex-direction: row-reverse;padding-right: 0px;">
+                                <ui-dropdown [menu]="menuItems_newCards" position="left bottom">
+                                    <ui-button class="button-coral expander" style="font-size: 14px;margin-left: 10px;">
+                                        Выпустить карту
+                                        <ui-icon letter="chewr_dwn_select"></ui-icon>
+                                    </ui-button>
+                                </ui-dropdown>
+                                <ui-button class="button-transp no-geb" style="font-size: 14px;width: 172px;" *appBuild="'delo'">Активировать карту</ui-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="allDebitCards.length !== 0" class="grid grid--container" style="background: white;border-radius: 5px;">
+                    <ng-container *ngTemplateOutlet="items; context: {data: allDebitCards}"></ng-container>
+                </div>
+                <div *ngIf="allDebitCards.length === 0" class="grid grid--container" style="background: white;border-radius: 5px;padding: 24px;font-size: 14px;">
+                    У вас нет карт
+                </div>
+            </ng-container>
+
+            <ng-container>
+                <div class="grid grid--container">
+                    <div class="collection-item header">
+                        <div class="row row--sm-center" style="display: flex;align-items: center;flex-flow: row;justify-content: space-between;">
+                            <div class="col col--sm-6">Карты других банков</div>
+                            <div class="col col--sm-3" style="display: flex;flex-direction: row-reverse;padding-right: 0px;">
+                                <ui-button class="button-transp no-geb" style="font-size: 14px;width: 152px;">Привязать карту</ui-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="allExternalCards.length !== 0" class="grid grid--container" style="background: white;border-radius: 5px;">
+                    <ng-container *ngTemplateOutlet="items; context: {data: allExternalCards}"></ng-container>
+                </div>
+                <div *ngIf="allExternalCards.length === 0" class="grid grid--container" style="background: white;border-radius: 5px;padding: 24px;font-size: 14px;">
+                    У вас нет карт
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="allBlockedCards.length !== 0">
+                <div class="grid grid--container">
+                    <div class="collection-item header">
+                        <div class="row row--sm-center">
+                            <div class="col">Заблокированные карты</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid--container" style="background: white;border-radius: 5px;">
+                    <ng-container *ngTemplateOutlet="items; context: {data: allBlockedCards}"></ng-container>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<!-- <ui-modal-window
+    *ngIf="isOpenEmailModal"
+    (close)="closeModal()"
+    [windowTitle]="'Отправить реквизиты на почту'"
+    class="send-email-modal">
+    <app-send-requisites-modal [number]="accountNumber"
+                               (isClosedModal)="closeModal()"></app-send-requisites-modal>
+</ui-modal-window> -->
+
+<!--<ui-modal-window-->
+<!--    *ngIf="isBlockModalWindowOpened"-->
+<!--    (close)="hideBlockModal()"-->
+<!--    class="block-card-modal">-->
+<!--    <p>Вы действительно хотите {{ card.blocked ? 'разблокировать' : 'временно заблокировать' }} карту «{{ card.name }}»? {{ card.blocked ? '' : 'В любой момент Вы сможете разблокировать карту через интернет-банк.' }} </p>-->
+<!--    <div class="grid">-->
+<!--        <div class="row row&#45;&#45;sm-justify-end">-->
+<!--            <div class="col col&#45;&#45;sm-3 col&#45;&#45;xs-12 cancel-container">-->
+<!--                <ui-button class="button-cancel button-block" (click)="hideBlockModal()">Отмена</ui-button>-->
+<!--            </div>-->
+<!--            <div class="col col&#45;&#45;sm-3 col&#45;&#45;xs-12">-->
+<!--                <ui-button class="button-block" [type]="submit" (mouseup)="switchToSign()">Ок</ui-button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</ui-modal-window>-->
+
+<ui-modal-window *ngIf="isDeleteModalWindowOpened" (close)="hideDeleteModal()" class="modal" windowTitle="Удалить карту">
+    <div class="modal-content">
+        <p>Вы действительно хотите удалить карту «{{ selectedExtCard.name }}»?</p>
+    </div>
+    <div class="button-block">
+        <ui-button class="button-cancel" (buttonClick)='hideDeleteModal()'>Отмена</ui-button>
+        <ui-button (buttonClick)='deleteCard()' style="width: 80px;margin-left: 20px;">Да</ui-button>
+    </div>
+</ui-modal-window>
+
+<ng-template #items let-cards="data">
+    <div
+        class="grid grid--container"
+        *ngFor="let card of cards; trackBy: index; let index = index;">
+        <div class="collection-item">
+            <div class="row row--sm-center" [class.first-item]="index === 0">
+
+                <div class="col col--xs-3 col--sm-1" [class.blocked]="card.blocked || card.expDate < currentDate" [routerLink]="getRouterLink(card)">
+                    <div class="card-img-container" *ngIf="cardsImages[card.id]; else withoutOwnImage">
+                        <ui-icon letter="additional_card" *ngIf="!card.isExternal && !card.primary && !card.blocked && !isParentCardBlocked(card.primaryAccount)"></ui-icon>
+                        <img *ngIf="card.primary || card.blocked || isParentCardBlocked(card.primaryAccount)"
+                            class="card-img"
+                            style="height: 23px"
+                            [src]="cardsImages[card.id]"
+                            (error)="checkCardImageError(card)">
+                    </div>
+                    <ng-template #withoutOwnImage>
+                        <ui-icon [letter]="icon(card)"></ui-icon>
+                    </ng-template>
+                </div>
+
+                <div class="col col--xs-4 col--sm-4 text--xs-left text--sm-left" [class.blocked]="card.blocked || card.expDate < currentDate" [routerLink]="getRouterLink(card)" style="display: flex;align-items: center;" [class.gray]="card.blocked || card.expDate < currentDate">
+                    <img *ngIf="!card.primary && !card.blocked && !isParentCardBlocked(card.primaryAccount)"
+                         class="card-img"
+                         style="height: 23px; margin-right: 25px;"
+                         [src]="cardsImages[card.id]"
+                         (error)="checkCardImageError(card)">
+                    <div>
+                        <div>{{ card.custom_name || card.name }}</div>
+                        <div style="font-size: 12px;margin-top: 5px;color: gray;letter-spacing: 0.3px;">{{ card.pan }}</div>
+                    </div>
+                </div>
+
+                <div class="col col--xs-3 col--sm-2 text--sm-left light-gray font-12" [routerLink]="getRouterLink(card)">
+                    {{ getCardType(card) }}
+                </div>
+
+                <div class="col col--xs-3 col--sm-2 text--sm-left light-gray font-12" [routerLink]="getRouterLink(card)" style="display: flex;align-items: center;flex-direction: column;">
+                    До {{ card.expDate | date: 'MM.yyyy' }}
+                    <br *ngIf="card.expDate < currentDate">
+                    <span *ngIf="card.expDate < currentDate" class="coral">Истек срок действия</span>
+                </div>
+
+                <div class="col col--xs-1 col--sm-2 text--sm-right" [routerLink]="getRouterLink(card)">
+                    <ui-amount *ngIf="!card.isExternal" style="font-size: 18px;" [class.gray]="card.blocked || card.expDate < currentDate" class="amount-sm" [value]="card.amount" [currency]="card.currency"></ui-amount>
+                </div>
+
+                <div class="col col--xs-1 col--sm-1 text--sm-right">
+                    <div class="drop-down-mnu">
+                        <ui-dropdown style="margin-right: 10px;"
+                            position="left bottom"
+                            [menu]="getDotMenu(card)"
+                            (onItemClick)="handleMenuActions($event, card)">
+                            <ui-icon letter="menu" class="section-action"></ui-icon>
+                        </ui-dropdown>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</ng-template>

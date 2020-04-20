@@ -1,0 +1,170 @@
+
+:host {
+    .card-img {
+        max-width: 40px;
+    }
+}
+
+.collection-item {
+    border-top: 1px solid #f7f7f6;
+    padding-left: 25px;
+    padding-right: 0;
+    &:not(.header):hover {
+        background-color: #f8f8f8;
+        cursor: pointer;
+        transition-duration: 0.1s;
+
+        &:first-child {
+            border-top: 0px;
+        }
+    }
+
+    &:first-child {
+        border-top: 0px;
+    }
+
+    .amount-sm {
+        font-size: 22px;
+    }
+
+    .col-1 {
+        flex-basis: 52px;
+        flex-shrink: 0;
+        color: #bbbfb0;
+        font-size: 20px;
+    }
+
+    .col-2 {
+        flex-shrink: 0;
+        font-weight: bold;
+    }
+
+    .col-3 {
+        color: #9ca093;
+    }
+
+    &.blocked {
+        .col-1, .col-3 {
+            color: #fd9b5c;
+        }
+    }
+}
+
+.collection-item.first-item {
+    border-top-color: transparent;
+}
+
+.collection-item.header {
+    border-bottom: 1px solid #f7f7f6;
+    font-size: 22px;
+    padding-left: 6px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background: #eeeeee;
+}
+
+
+.row--sm-justify-end {
+    justify-content: flex-start;
+    > div {
+        width: auto;
+    }
+}
+
+.card-img-container {
+    display: flex;
+    //justify-content: space-between;
+    margin-left: 10px;
+    ui-icon {
+        margin-left: 12px;
+    }
+    img {
+        margin-left: 0px;
+    }
+}
+
+.coral{
+    color: #f65e64;
+}
+
+.gray{
+    color: #8c8e86;
+}
+
+.light-gray{
+    color: #9ca093;
+}
+
+.font-12{
+    font-size: 12px;
+}
+
+ui-link-bar ::ng-deep .ui-linkitem-link{
+    cursor: default;
+}
+
+.section-body{
+    padding-top: 0px;
+}
+
+.button-transp{
+    ::ng-deep button {
+        background-color: #eeeeee;
+        border-color: #f65e64;
+        color: #f65e64;
+        border-style: solid;
+        border-width: 1px;
+
+        &:hover {
+            background-color: #f65e64;
+            color: white;
+            cursor: pointer;
+            transition-duration: 0.1s;
+        }
+    }
+}
+
+.button-coral{
+    ::ng-deep button {
+        border-color: #f65e64;
+        background-color: #f65e64;
+        color: white;
+        border-style: solid;
+        border-width: 1px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.expander{
+    ::ng-deep button{
+        .button-content{
+            display: flex;
+
+            ui-icon{
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+.blocked{
+    filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+}
+
+ui-icon.section-action {
+    color: #8c8e86;
+    &:hover,
+    &:focus,
+    &:active {
+        color: #f65e64;
+    }
+}
+
+.button-block{
+    display: flex;
+    justify-content: flex-end;
+}

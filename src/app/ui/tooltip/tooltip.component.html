@@ -1,0 +1,19 @@
+<div class="parent" [class.white-theme]="whiteTheme" #parentTooltip>
+    <ng-content></ng-content>
+    <div
+        #tooltip
+        *ngIf="isShow"
+        class="tooltip"
+        [ngStyle]="tooltipStyles">
+        <div
+            #arrow
+            class="arrow"
+            [ngClass]="[posY]"
+            [ngStyle]="arrowStyles">
+        </div>
+        <div class="tooltip-body" *ngIf="text" [innerHTML]="text"></div>
+        <div class="tooltip-body" *ngIf="displayOtherContent">
+            <ng-content select="content"></ng-content>
+        </div>
+    </div>
+</div>
