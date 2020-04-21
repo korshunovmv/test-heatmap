@@ -4,6 +4,7 @@ import { takeUntil } from 'rxjs/operators';
 
 import { InputComponent } from '../../../ui/input/input.component';
 import { AppService } from 'app/service/app.service';
+import { MatomoInjectorService } from 'app/matomo/matomo-injector.service';
 
 @Component({
     selector: 'app-login',
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit, OnDestroy, AfterViewInit {
 
     errors = {
         type: '',
-        common: []
+        common: [],
     };
 
     get isMobilePlatform(): boolean {
@@ -37,6 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy, AfterViewInit {
     constructor(
         private ngZone: NgZone,
         private appService: AppService,
+        public matomoInjectorService: MatomoInjectorService,
     ) {
     }
 

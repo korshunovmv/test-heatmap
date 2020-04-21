@@ -9,7 +9,6 @@ import { ModuleLoadingService } from './routing/module-loading.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  implements OnInit, OnDestroy {
-  title = 'Tour of Heroes';
 
   constructor(
     // private titleService: TitleService,

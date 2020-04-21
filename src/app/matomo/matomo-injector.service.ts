@@ -14,6 +14,7 @@ declare var window: {
 @Injectable()
 export class MatomoInjectorService {
     siteId: string;
+    inited: boolean;
 
     /**
      * Creates an instance of MatomoInjector.
@@ -32,7 +33,7 @@ export class MatomoInjectorService {
      * @param usePiwikFileName
      * @memberof MatomoInjector
      */
-    init(url: string, id: string, usePiwikFileName?: boolean) {
+    init(url: string, id?: string, usePiwikFileName?: boolean) {
         // window._paq.push(['trackPageView']);
         window._paq.push(['enableLinkTracking']);
         (() => {
@@ -42,7 +43,10 @@ export class MatomoInjectorService {
                 fileName = 'piwik';
             }
             window._paq.push(['setTrackerUrl', u + fileName + '.php']);
-            window._paq.push(['setSiteId', id]);
+            if (id) {
+              window._paq.push(['setSiteId', id]);
+              this.siteId = id;
+            }
             // window._paq.push(['HeatmapSessionRecording::enableRecordMovements']);
             const d = document,
                 g = d.createElement('script'),
@@ -52,7 +56,7 @@ export class MatomoInjectorService {
             g.defer = true;
             g.src = u + fileName + '.js';
             s.parentNode.insertBefore(g, s);
-            this.siteId = id;
+            this.inited = true;
         })();
     }
 

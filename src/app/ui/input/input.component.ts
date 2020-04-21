@@ -30,7 +30,6 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
 const noop = () => {};
 
 @Component({
-    // tslint:disable-next-line: component-selector
     selector: 'ui-input',
     templateUrl: './input.component.html',
     providers: [

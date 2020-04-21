@@ -1,0 +1,13 @@
+<ui-input
+    type="text"
+    placeholder="MatomoURL"
+    [(ngModel)]="matomoURL"
+    [disabled]="inited">
+</ui-input>
+<ui-input
+    type="text"
+    placeholder="SiteId"
+    [(ngModel)]="setSiteId"
+    [disabled]="inited">
+</ui-input>
+<button (click)="initMatomoService()" [disabled]="inited">Init matomo</button>

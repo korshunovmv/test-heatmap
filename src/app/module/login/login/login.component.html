@@ -1,39 +1,40 @@
-<widget-page-header [pageTitle]="'Вход'"></widget-page-header>
+<ng-container *ngIf="matomoInjectorService.inited">
+  <widget-page-header [pageTitle]="'Вход'"></widget-page-header>
 
-<div class="border"></div>
+  <div class="border"></div>
 
-<div class="form form-login">
-    <div class="control-group">
-        <ui-input
-            #input
-            type="text"
-            placeholder="Логин *"
-            [error]="['login', 'common'].includes(errors.type)"
-            [enabledDeletion]="true"
-            [loginIcon]="true"
-            [(ngModel)]="login"
-            (submit)="doLogin()">
-        </ui-input>
-        <ui-input
-            #input
-            type="password"
-            placeholder="Пароль *"
-            [error]="['password', 'common'].includes(errors.type)"
-            [enabledDeletion]="true"
-            [passwordIcon]="true"
-            [togglePasswordIcon]="true"
-            [(ngModel)]="password"
-            (submit)="doLogin()"
-            uiCapsLock
-        >
-        </ui-input>
-        <ui-control-errors [errors]="errors.common"></ui-control-errors>
-    </div>
+  <div class="form form-login">
+      <div class="control-group">
+          <ui-input
+              #input
+              type="text"
+              placeholder="Логин *"
+              [error]="['login', 'common'].includes(errors.type)"
+              [enabledDeletion]="true"
+              [loginIcon]="true"
+              [(ngModel)]="login"
+              (submit)="doLogin()">
+          </ui-input>
+          <ui-input
+              #input
+              type="password"
+              placeholder="Пароль *"
+              [error]="['password', 'common'].includes(errors.type)"
+              [enabledDeletion]="true"
+              [passwordIcon]="true"
+              [togglePasswordIcon]="true"
+              [(ngModel)]="password"
+              (submit)="doLogin()"
+              uiCapsLock
+          >
+          </ui-input>
+          <ui-control-errors [errors]="errors.common"></ui-control-errors>
+      </div>
 
-    <div class="grid">
-        <div class="row row--xs-justify-center row--md-justify-between row--md-center">
+      <div class="grid">
+          <div class="row row--xs-justify-center row--md-justify-between row--md-center">
             <div class="col col--md text-center nowrap" *appBuild="'delo'">
-                <a class="link-forget" [routerLink]="['/restore']">Забыли логин или пароль?</a>
+              <a class="link-forget" [routerLink]="['/restore']">Забыли логин или пароль?</a>
             </div>
             <div class="col col--md text-center nowrap" *appBuild="'delo'">
               <a class="link-forget" [routerLink]="['/restore']">Забыли логин или пароль?</a>
@@ -58,8 +59,9 @@
                     class="button button-login"
                     (buttonClick)="doLogin()"
                     [disabled]="isDisabledConfirmButton"
-                >ВОЙТИ</ui-button>
+                >Sign in</ui-button>
             </div>
-        </div>
-    </div>
-</div>
+          </div>
+      </div>
+  </div>
+</ng-container>

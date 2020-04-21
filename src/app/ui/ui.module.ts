@@ -46,6 +46,7 @@ import { ScrollbarComponent } from './scrollbar/scrollbar.component';
     ScrollbarComponent,
   ],
   exports: [
+    FormsModule,
     InputComponent,
     TooltipComponent,
     IconComponent,

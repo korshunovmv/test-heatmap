@@ -93,8 +93,5 @@ export class AppModule {
     // private sessionHandler: SessionHandler,
     // private appService: AppService,
   ) {
-    const matomoSiteId = '2';
-    matomoInjectorService.init(environment.matomoUrl, matomoSiteId);
-    // matomoTrackerService.setSiteId(matomoSiteId);
   }
 }

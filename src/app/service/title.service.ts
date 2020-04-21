@@ -37,7 +37,7 @@ export class TitleService {
         // title.subscribe((t) => { console.log(t); });
     }
 
-    private updateTitle() {
+    updateTitle() {
         if (window.location.pathname === '/') {
             return;
         }
