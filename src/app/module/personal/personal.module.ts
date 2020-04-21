@@ -29,7 +29,7 @@ import { CardsComponent } from './cards/cards.component';
 // import { WidgetService } from 'app/layouts/services/widget.service';
 import { ClipboardModule } from 'ngx-clipboard';
 import { DirectiveModule } from 'app/directive/directive.module';
-import { ProductsService } from './products.service';
+import { DepositsComponent } from './deposits/deposits.component';
 
 @NgModule({
     imports: [
@@ -47,9 +47,9 @@ import { ProductsService } from './products.service';
     ],
     declarations: [
         CardsComponent,
+        DepositsComponent,
     ],
     providers: [
-      ProductsService,
     ]
 })
 export class PersonalModule {

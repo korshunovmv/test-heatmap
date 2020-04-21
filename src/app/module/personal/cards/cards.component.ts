@@ -9,7 +9,7 @@ import { AppService } from '../../../service/app.service';
 import { IMenuItem } from '../../../ui/dropdown/dropdown.component';
 import { Router } from '@angular/router';
 import { Utils } from '../../../util';
-import { ProductsService } from '../products.service';
+import { ProductsService } from 'app/service/products.service';
 
 @Component({
     selector: 'personal-summary-cards',
@@ -70,7 +70,7 @@ export class CardsComponent implements OnInit, OnDestroy {
                         uniqueKey: 'addAmount',
                         pathOrFunction: () => {
                           // this.router.navigate(['/create-debit-card']);
-                         }
+                        }
                     },
                 ];
                 if (build !== 'geb') {
@@ -109,8 +109,8 @@ export class CardsComponent implements OnInit, OnDestroy {
 
         const allInternalCards = [...this.productsService.getCards()];
         const allExternalCards = [...this.productsService.getExternalCards()];
-        this.allDebitCards = this.loadCards(allInternalCards.filter(card => !card.blocked && card.expDate >= this.currentDate));
-        this.allBlockedCards = this.loadCards(allInternalCards.filter(card => card.blocked || card.expDate < this.currentDate));
+        this.allDebitCards = this.loadCards(allInternalCards.filter(card => !card.blocked));
+        this.allBlockedCards = this.loadCards(allInternalCards.filter(card => card.blocked));
         this.allExternalCards = allExternalCards.map(card => this.mapExternalToInternalCard(card));
         this.mergeCards();
     }
@@ -339,7 +339,8 @@ export class CardsComponent implements OnInit, OnDestroy {
         this.isDeleteModalWindowOpened = false;
     }
 
-
-
+    reresh() {
+      this.loadAllCards();
+    }
 
 }

@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CardsComponent } from './cards/cards.component';
+import { DepositsComponent } from './deposits/deposits.component';
 
 
 const personalRoutes: Routes = [
   {
       path: '',
       pathMatch: 'full',
-      redirectTo: '/cards',
+      redirectTo: '/deposits',
   },
   {
       path: 'cards',
-      component: CardsComponent
+      component: CardsComponent,
+  },
+  {
+    path: 'deposits',
+    component: DepositsComponent,
   },
 ];
 
@@ -20,8 +25,8 @@ const personalRoutes: Routes = [
         RouterModule.forChild(personalRoutes)
     ],
     exports: [
-        RouterModule
-    ]
+        RouterModule,
+    ],
 })
 export class PersonalRoutingModule {
 }

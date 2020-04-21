@@ -21,9 +21,6 @@ import { MenuService } from 'app/layouts/services/menu.service';
     styleUrls: ['./sidebar.component.less']
 })
 export class SidebarComponent implements OnInit, OnDestroy {
-    @Input()
-    useProductsV2: boolean;
-
     @Output() onCloseSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     @ViewChild('header')

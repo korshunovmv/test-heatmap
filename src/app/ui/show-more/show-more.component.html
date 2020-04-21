@@ -1,0 +1,16 @@
+<ng-content></ng-content>
+<div class="show-more-toggle" *ngIf="isButtonShown">
+    <div *ngIf="showShow && showActive" class="show-more-button" (click)="showMoreClick()">
+        <div class="show-more-label">{{ showLabel }}</div>
+        <div *ngIf="displayIcon" class="icon">
+            <ui-icon letter="chewr_dwn_select"></ui-icon>
+        </div>
+    </div>
+    <div *ngIf="showHide && hideActive" class="show-more-button" (click)="hideClick()">
+        <div class="show-more-label">{{ hideLabel }}</div>
+        <div *ngIf="displayIcon" class="icon">
+            <ui-icon letter="chewr_up_select"></ui-icon>
+        </div>
+    </div>
+</div>
+

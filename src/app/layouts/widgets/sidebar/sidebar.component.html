@@ -3,7 +3,7 @@
         <ui-scrollbar class="ui-scrollbar">
             <ul class="sidebar-menu-list" *ngIf="(userRole === 'corporate' && build !== 'skb') || userRole === 'personal'">
                 <ng-container *ngFor="let menuItem of (menuService.menuListSource | async)">
-                    <ng-container *ngIf="menuItem.matomo.object === 'reports'; else defaultMenu">
+                    <ng-container *ngIf="menuItem.matomo && menuItem.matomo.object === 'reports'; else defaultMenu">
                       reports
                     </ng-container>
                     <ng-template #defaultMenu>
@@ -57,6 +57,9 @@
                                       services
                                     </div>
                                     <div *ngIf="menuItem.isOpen && menuItem.subMenu === 'accounts'">
+                                        <widget-sidebar-accounts
+                                            [isChief]="true">
+                                        </widget-sidebar-accounts>
                                     </div>
                                 </div>
                             </li>

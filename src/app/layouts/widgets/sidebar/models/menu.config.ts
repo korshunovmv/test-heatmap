@@ -1,43 +1,27 @@
 import { MenuItemConfig } from './menu-item';
 
 export const PERSONAL_MENU: MenuItemConfig[] = [
+    // {
+    //     title: 'Главная',
+    //     icon: 'home',
+    //     path: '/',
+    // },
     {
-        title: 'Главная',
-        icon: 'home',
-        path: '/',
-        matomo: {
-            object: 'main',
-            label: 'Главная_меню'
-        }
-    },
-    {
-        title: 'Карты',
+        title: 'Cards',
         icon: 'card',
         path: '/cards',
-        matomo: {
-            object: 'cards',
-            label: 'Карты_меню'
-        }
     },
-    // {
-    //     title: 'Счета',
-    //     icon: 'kotnr_schet',
-    //     isOpen: false,
-    //     subMenu: 'accounts',
-    //     matomo: {
-    //         object: 'accounts',
-    //         label: 'Счета_меню'
-    //     }
-    // },
-    // {
-    //     title: 'Вклады',
-    //     icon: 'user',
-    //     path: '/deposits',
-    //     matomo: {
-    //         object: 'deposit',
-    //         label: 'Вклады_меню'
-    //     }
-    // },
+    {
+        title: 'Счета',
+        icon: 'kotnr_schet',
+        isOpen: false,
+        subMenu: 'accounts',
+    },
+    {
+        title: 'Deposits',
+        icon: 'user',
+        path: '/deposits',
+    },
     // {
     //     title: 'Кредиты',
     //     icon: 'pay',

@@ -1,0 +1,36 @@
+<ul>
+    <ng-container *ngFor="let account of accounts">
+        <li *ngIf="account.type !== 'transit'" [routerLink]="[accountPath, account.number]">
+            <div class="amount-title">
+                <img class="account-image" *ngIf="account.imgUrl" [src]="account.imgUrl">
+                {{ account.name }}
+            </div>
+            <ui-amount [value]="account.amount" [currency]="account.currency"></ui-amount>
+        </li>
+        <ng-container *ngIf="cards[account.number]">
+            <li class="card"
+                *ngFor="let card of cards[account.number]"
+                [routerLink]="['/card/property', card.cardId]">
+                <div class="card__icon">
+                    <ui-icon letter="additional_card"></ui-icon>
+                </div>
+                <div class="card__data">
+                    <div class="amount-title">{{ card.name ? card.name : card.brand }}, {{ card.pan }}</div>
+                    <ui-amount [value]="card.amount" [currency]="card.currency"></ui-amount>
+                </div>
+            </li>
+        </ng-container>
+    </ng-container>
+    <!-- <ng-container *appBuild="'delo'">
+        <li *ngIf="isCorporate && isChief" [routerLink]="['/activate-card']">
+            <div class="amount-title">Активировать карту</div>
+        </li>
+
+        <li *ngIf="userRole === 'corporate' && isChief && !isGeb" [routerLink]="['/account-create']">
+            <div class="amount-title">Открыть счет</div>
+        </li>
+    </ng-container>
+    <li *ngIf="userRole === 'personal'" [routerLink]="['/new-account']">
+        <div class="amount-title">Открыть счет</div>
+    </li> -->
+</ul>

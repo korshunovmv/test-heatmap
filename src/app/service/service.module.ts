@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { TitleService } from './title.service';
 
 import { MatomoModule } from '../matomo/matomo.module';
+import { ProductsService } from './products.service';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { MatomoModule } from '../matomo/matomo.module';
   providers: [
     TitleService,
     AppService,
+    ProductsService,
   ],
 })
 

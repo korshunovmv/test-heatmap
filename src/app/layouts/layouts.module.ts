@@ -13,6 +13,7 @@ import { WidgetComponentDirective } from './directives/widget.directive';
 import { widgetsComponents } from './widgets';
 import { DirectiveModule } from '../directive/directive.module';
 import { SidebarComponent } from './widgets/sidebar/sidebar.component';
+import { SidebarAccountsComponent } from './widgets/sidebar/sidebar-accounts/sidebar-accounts.component';
 
 @NgModule({
     imports: [
@@ -30,6 +31,7 @@ import { SidebarComponent } from './widgets/sidebar/sidebar.component';
 
         WidgetComponentDirective,
         ...widgetsComponents,
+        SidebarAccountsComponent,
         SidebarComponent,
     ],
     providers: [

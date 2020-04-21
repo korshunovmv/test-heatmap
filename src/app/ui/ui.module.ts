@@ -18,6 +18,7 @@ import { ModalWindowComponent } from './modal-window/modal-window.component';
 import { AmountComponent } from './amount/amount.component';
 import { DropdownMenuComponent } from './dropdown/menu/menu.component';
 import { ScrollbarComponent } from './scrollbar/scrollbar.component';
+import { ShowMoreComponent } from './show-more/show-more.component';
 
 
 
@@ -44,6 +45,7 @@ import { ScrollbarComponent } from './scrollbar/scrollbar.component';
     ModalWindowComponent,
     AmountComponent,
     ScrollbarComponent,
+    ShowMoreComponent,
   ],
   exports: [
     FormsModule,
@@ -58,6 +60,7 @@ import { ScrollbarComponent } from './scrollbar/scrollbar.component';
     ModalWindowComponent,
     AmountComponent,
     ScrollbarComponent,
+    ShowMoreComponent,
   ],
   entryComponents: [
     DropdownMenuComponent,
