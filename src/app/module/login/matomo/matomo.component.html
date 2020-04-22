@@ -1,13 +1,25 @@
-<ui-input
+<div>MatomoURL(*):
+  <ui-input
+      type="text"
+      placeholder="MatomoURL"
+      [(ngModel)]="matomoURL"
+      [disabled]="inited">
+  </ui-input>
+</div>
+<div>fileName:
+  <ui-input
     type="text"
-    placeholder="MatomoURL"
-    [(ngModel)]="matomoURL"
+    placeholder="fileName"
+    [(ngModel)]="fileName"
     [disabled]="inited">
-</ui-input>
-<ui-input
-    type="text"
-    placeholder="SiteId"
-    [(ngModel)]="setSiteId"
-    [disabled]="inited">
-</ui-input>
+  </ui-input>
+</div>
+<div>SiteId(our internal variable):
+  <ui-input
+      type="text"
+      placeholder="SiteId"
+      [(ngModel)]="setSiteId"
+      [disabled]="inited">
+  </ui-input>
+</div>
 <button (click)="initMatomoService()" [disabled]="inited">Init matomo</button>

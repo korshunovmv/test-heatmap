@@ -17,13 +17,7 @@ export class LoginModuleComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.s = this.appService.sessionState$.subscribe(sessionState => {
-            if (sessionState === 'add_authorized') {
-                this.router.navigate(['/sms']);
-            } else if (sessionState === 'not_authorized') {
-                this.router.navigate(['/login']);
-            }
-        });
+
     }
 
     ngOnDestroy() {

@@ -55,7 +55,7 @@ export class PersonalModule {
       private widgetService: WidgetService,
       private cfr: ComponentFactoryResolver
     ) {
-      widgetService.registerWidget('right-sidebar-personal', RightSidebarComponent, cfr);
+      // widgetService.registerWidget('right-sidebar-personal', RightSidebarComponent, cfr);
       // widgetService.registerWidget('right-sidebar-personal-mobile', RightSidebarMobileComponent, cfr);
     }
 }

@@ -10,6 +10,11 @@ const personalRoutes: Routes = [
       redirectTo: '/cards',
   },
   {
+    path: 'matomo-init',
+    pathMatch: 'full',
+    redirectTo: '/cards',
+  },
+  {
       path: 'cards',
       component: CardsComponent,
   },

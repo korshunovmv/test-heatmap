@@ -16,6 +16,7 @@ export class MatomoComponent implements OnInit, OnDestroy {
 
   matomoURL: string = 'https://isf-regress.skblab.ru/';
   setSiteId: string = '2';
+  fileName: string = 'stat';
   destroy$: Subject<void> = new Subject<void>();
 
   get inited(): boolean {
@@ -45,7 +46,7 @@ export class MatomoComponent implements OnInit, OnDestroy {
     }
 
     initMatomoService() {
-      this.matomoInjectorService.init(this.matomoURL, this.setSiteId);
+      this.matomoInjectorService.init(this.matomoURL, this.fileName, this.setSiteId);
       this.titleService.updateTitle();
       setTimeout(() => {
         this.appService.logged();

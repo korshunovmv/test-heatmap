@@ -33,15 +33,15 @@ export class MatomoInjectorService {
      * @param usePiwikFileName
      * @memberof MatomoInjector
      */
-    init(url: string, id?: string, usePiwikFileName?: boolean) {
+    init(u: string, fileName: string, id?: string) {
         // window._paq.push(['trackPageView']);
         window._paq.push(['enableLinkTracking']);
         (() => {
-            const u = url;
-            let fileName = 'stat';
-            if (usePiwikFileName) {
-                fileName = 'piwik';
-            }
+            // const u = url;
+            // let fileName = 'stat';
+            // if (usePiwikFileName) {
+            //     fileName = 'piwik';
+            // }
             window._paq.push(['setTrackerUrl', u + fileName + '.php']);
             if (id) {
               window._paq.push(['setSiteId', id]);
