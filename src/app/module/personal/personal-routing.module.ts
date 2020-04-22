@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CardsComponent } from './cards/cards.component';
-import { DepositsComponent } from './deposits/deposits.component';
 
 
 const personalRoutes: Routes = [
@@ -13,10 +12,6 @@ const personalRoutes: Routes = [
   {
       path: 'cards',
       component: CardsComponent,
-  },
-  {
-    path: 'deposits',
-    component: DepositsComponent,
   },
 ];
 

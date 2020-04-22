@@ -5,7 +5,6 @@ import { filter } from 'rxjs/operators';
 import { MatomoTrackerService } from '../matomo/matomo-tracker.service';
 import { Title } from '@angular/platform-browser';
 
-// import { MatomoTrackerService } from '@skblab/matomo';
 // import { AppService, EnvironmentState } from 'app/core/app';
 
 // declare var _paq: any;

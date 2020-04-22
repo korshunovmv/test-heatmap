@@ -24,12 +24,11 @@ import { CardsComponent } from './cards/cards.component';
 // import { PersonalModalModule } from './modal/modal.module';
 
 // import { RightSidebarModule } from './right-sidebar/right-sidebar.module';
-// import { RightSidebarComponent } from './right-sidebar/right-sidebar.component';
+import { RightSidebarComponent } from './right-sidebar/right-sidebar.component';
 // import { RightSidebarMobileComponent } from './right-sidebar/right-sidebar-mobile.component';
-// import { WidgetService } from 'app/layouts/services/widget.service';
+import { WidgetService } from 'app/layouts/services/widget.service';
 import { ClipboardModule } from 'ngx-clipboard';
 import { DirectiveModule } from 'app/directive/directive.module';
-import { DepositsComponent } from './deposits/deposits.component';
 
 @NgModule({
     imports: [
@@ -47,15 +46,16 @@ import { DepositsComponent } from './deposits/deposits.component';
     ],
     declarations: [
         CardsComponent,
-        DepositsComponent,
     ],
     providers: [
     ]
 })
 export class PersonalModule {
-    // constructor(private widgetService: WidgetService,
-    //     private cfr: ComponentFactoryResolver) {
-    //     widgetService.registerWidget('right-sidebar-personal', RightSidebarComponent, cfr);
-    //     widgetService.registerWidget('right-sidebar-personal-mobile', RightSidebarMobileComponent, cfr);
-    // }
+    constructor(
+      private widgetService: WidgetService,
+      private cfr: ComponentFactoryResolver
+    ) {
+      widgetService.registerWidget('right-sidebar-personal', RightSidebarComponent, cfr);
+      // widgetService.registerWidget('right-sidebar-personal-mobile', RightSidebarMobileComponent, cfr);
+    }
 }

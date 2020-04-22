@@ -1,0 +1,42 @@
+<div class="component-container" [class.clear-radius]="(api.currentActiveMenu | async) !== 'none'">
+    <div class="item"
+         [class.menu-active]="(api.currentActiveMenu | async) === 'news'"
+         (mouseenter)="matomoHover('news')"
+         (click)="setCurrentMenu('news')">
+        <div class="notification-label" *ngIf="(newsCounter | async) > 0">
+            {{ (newsCounter | async) >= 100 ? '99+' : (newsCounter | async) }}
+        </div>
+        <img src="/assets/images/news.svg">
+        <p>Новости</p>
+    </div>
+
+    <div class="item"  (click)="setCurrentMenu('chat')" [class.menu-active]="(api.currentActiveMenu | async) === 'chat'">
+        <!-- <div class="notification-label" *ngIf="(chat.unread$ | async) > 0">
+            {{ (chat.unread$ | async) >= 100 ? '99+' : (chat.unread$ | async) }}
+        </div> -->
+        <ui-icon letter="im"></ui-icon>
+        <p>Чат</p>
+    </div>
+</div>
+
+<div class="recommendation-container" [class.show]="(api.currentActiveMenu | async) === 'news'">
+    <div class="recommendation-title">
+        <span>Новости</span>
+        <img src="/assets/images/roll-right.svg" (click)="setCurrentMenu('none')">
+    </div>
+    <ui-scrollbar #scrollNews>
+        <div style="height: calc(100vh - 206px)">
+            <personal-news></personal-news>
+        </div>
+    </ui-scrollbar>
+</div>
+
+<div class="chat-container" #chatN>
+    <!-- <chat-dbo *appStandalone></chat-dbo> -->
+</div>
+<!-- <chat-image *ngIf="chat.service.showImage"
+            [imageUrl]="chat.service.fileSource"
+            (close)="chat.service.showImage = false"
+            [fromHistory]="chat.service.fromHistory"
+            [fileName]="chat.service.fileName"
+            (send)="chat.service.sendMessageFunc()"></chat-image> -->

@@ -1,0 +1,84 @@
+.link-dotted {
+    color: #8c8e86;
+    border-bottom: 1px dotted #8c8e86;
+    cursor: pointer;
+
+    @media (max-width: 1130px) {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+    }
+}
+
+.unreaded {
+    background: #f2f2f2;
+}
+
+.news {
+    margin: 16px;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color ease-in-out 0.2ms;
+
+    time {
+        color: #8c8e86;
+        margin-bottom: 4px;
+    }
+
+    dt {
+        width: 90%;
+    }
+
+    dd {
+        margin: 16px 0;
+
+        img {
+            max-width: 100%;
+            padding-bottom: 16px;
+        }
+    }
+}
+
+.cross {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 28px;
+    right: 28px;
+}
+
+.news-container-active {
+    position: relative;
+    background-color: #f8f8f8;
+    .news {
+        cursor: default;
+        padding-top: 20px;
+        background-color: #f8f8f8 !important;
+    }
+
+    dt {
+        font-weight: 900;
+    }
+
+    .cross {
+        display: block;
+    }
+}
+
+.news:hover {
+    background-color: #e7f6f9;
+}
+
+:host ::ng-deep .news-link {
+    cursor: pointer;
+}
+
+:host ::ng-deep .news-link:hover {
+    text-decoration: underline;
+}
+
+.disabled {
+    cursor: default;
+    border-bottom: none;
+}

@@ -11,17 +11,17 @@ export const PERSONAL_MENU: MenuItemConfig[] = [
         icon: 'card',
         path: '/cards',
     },
-    {
-        title: 'Счета',
-        icon: 'kotnr_schet',
-        isOpen: false,
-        subMenu: 'accounts',
-    },
-    {
-        title: 'Deposits',
-        icon: 'user',
-        path: '/deposits',
-    },
+    // {
+    //     title: 'Счета',
+    //     icon: 'kotnr_schet',
+    //     isOpen: false,
+    //     subMenu: 'accounts',
+    // },
+    // {
+    //     title: 'Deposits',
+    //     icon: 'user',
+    //     path: '/deposits',
+    // },
     // {
     //     title: 'Кредиты',
     //     icon: 'pay',

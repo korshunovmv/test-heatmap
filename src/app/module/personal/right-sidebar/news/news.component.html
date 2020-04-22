@@ -1,0 +1,19 @@
+<div style="margin: 25px 24px 0; display: flex; justify-content: flex-end">
+    <div (click)="markAllAsViewed()" [class.disabled]="!(canReadAll | async)" class="link-dotted">Прочитать все</div>
+</div>
+
+<!-- <app-mini-preloader id="news-loader" *ngIf="(isLoading | async)"></app-mini-preloader> -->
+
+<ng-container *ngIf="!(isLoading | async)">
+    <ng-container *ngIf="(news | async) && (news | async).length; else newsEmpty">
+        <dl [class.news-container-active]="(openedNews | async).includes(i)" *ngFor="let newsItem of (news | async); let i = index" (click)="openNews(i)">
+            <ui-icon class="cross" letter="cancel" (click)="closeNews(i)" (click)="$event.stopPropagation()"></ui-icon>
+            <div class="news" [class.unreaded]="!newsItem?.viewed">
+                <time>{{ newsItem?.date }}</time>
+                <dt> {{ newsItem?.title }} </dt>
+                <!-- <app-mini-preloader [id]="i" *ngIf="(loaders | async).includes(i)" class="relative"></app-mini-preloader> -->
+                <dd *ngIf="(openedNews | async).includes(i)" [innerHTML]="newsItem?.text"></dd>
+            </div>
+        </dl>
+    </ng-container>
+</ng-container>
