@@ -12,6 +12,12 @@ export class ProductsService {
     deposits: BehaviorSubject<any[]> = new BehaviorSubject(null);
     loans: BehaviorSubject<any[]> = new BehaviorSubject(null);
 
+    updateAccounts$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    updateCards$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    updateExternalCards$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    updateDeposits$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    updateLoans$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+
     externalCardsStr = '[{"id":40507136,"pan":"548386******0559","name":"4444","expDate":"02/21","bindDate":"11.02.2020","storedId":40507136,"paymentSystem":"MC"}, {"id":40507134,"pan":"510070******0097","name":"33333","expDate":"11/23","bindDate":"11.02.2020","storedId":40507134,"paymentSystem":"MC"},{"id":40507061,"pan":"557057******9697","name":"22222","expDate":"12/20","bindDate":"11.02.2020","storedId":40507061,"paymentSystem":"MC"},{"id":40506988,"pan":"532130******0174","name":"111111","expDate":"02/20","bindDate":"11.02.2020","storedId":40506988,"paymentSystem":"MC"},{"id":40506985,"pan":"676454******0966","name":"нага","expDate":"11/22","bindDate":"11.02.2020","storedId":40506985,"paymentSystem":"MAESTRO"},{"id":40506912,"pan":"220096******2993","name":"на6а0822","expDate":"08/22","bindDate":"11.02.2020","storedId":40506912,"paymentSystem":"MIR"},{"id":39920857,"pan":"519261******3242","name":"Мандаринка","expDate":"05/24","bindDate":"29.01.2020","storedId":39920857,"paymentSystem":"MC"},{"id":39619671,"pan":"427939******6009","name":"Карта ноунейм банка","expDate":"01/22","bindDate":"21.01.2020","storedId":39619671,"paymentSystem":"VISA"},{"id":20413256,"pan":"448511******8381","name":"American Express g","expDate":"04/23","bindDate":"24.04.2019","storedId":20413256,"paymentSystem":"VISA"},{"id":13876285,"pan":"220048******0007","name":"p2p 702","expDate":"02/22","bindDate":"04.03.2020","storedId":13876285,"paymentSystem":"MIR"},{"id":13876284,"pan":"220140******2467","name":"p2p 952","expDate":"01/22","bindDate":"16.01.2020","storedId":13876284,"paymentSystem":"MIR"}]';
 
     cardsStr =
@@ -146,12 +152,24 @@ export class ProductsService {
       });
     }
 
+    updateExternalCards() {
+      // this.externalCards.next(null);
+      // setTimeout(() => {
+        this.updateExternalCards$.next(true);
+        // this.externalCards.next(JSON.parse(this.externalCardsStr));
+      // }, 0);
+    }
+
     updateProducts() {
+      this.clearProducts();
       setTimeout(() => {
         this.externalCards.next(JSON.parse(this.externalCardsStr));
         this.accounts.next(JSON.parse(this.accountsStr));
         this.cards.next(JSON.parse(this.cardsStr));
         this.deposits.next(JSON.parse(this.depositsStr));
+
+        this.updateCards$.next(true);
+        this.updateExternalCards$.next(true);
       }, 200);
     }
 

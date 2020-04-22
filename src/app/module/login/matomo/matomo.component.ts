@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { MatomoInjectorService } from 'app/matomo/matomo-injector.service';
 import { MatomoTrackerService } from 'app/matomo/matomo-tracker.service';
 import { TitleService } from 'app/service/title.service';
+import { AppService } from 'app/service/app.service';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class MatomoComponent implements OnInit, OnDestroy {
     constructor(
       public matomoInjectorService: MatomoInjectorService,
       private titleService: TitleService,
+      private appService: AppService,
     ) { }
 
     ngOnInit() {
@@ -44,9 +46,10 @@ export class MatomoComponent implements OnInit, OnDestroy {
 
     initMatomoService() {
       this.matomoInjectorService.init(this.matomoURL, this.setSiteId);
-      if (this.matomoInjectorService.inited) {
-        this.titleService.updateTitle();
-      }
+      this.titleService.updateTitle();
+      setTimeout(() => {
+        this.appService.logged();
+      }, 100);
     }
 
 }

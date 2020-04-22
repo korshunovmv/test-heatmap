@@ -62,21 +62,9 @@ export class LoginComponent implements OnInit, OnDestroy, AfterViewInit {
         if (this.password && login) {
             this.disableConfirmButton();
             setTimeout(() => {
-              this.appService.add_authorized();
+              this.appService.logged();
               this.enableConfirmButton();
             }, 200);
-            // this.apiService
-            //     .request(new LoginRequest(login, this.password))
-            //     .subscribe(() => {
-            //         this.enableConfirmButton();
-            //     },
-            //         errors => {
-            //             if (Array.isArray(errors) && errors.length) {
-            //                 this.errors.common = [...errors.map(({message}) => message)];
-            //             }
-            //             this.enableConfirmButton();
-            //             // TODO показать ошибку о блокировке в модальном окне
-            //         });
             return;
         }
         switch (true) {

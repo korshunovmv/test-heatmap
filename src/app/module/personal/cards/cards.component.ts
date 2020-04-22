@@ -61,6 +61,7 @@ export class CardsComponent implements OnInit, OnDestroy {
         private router: Router,
         private productsService: ProductsService,
     ) {
+        this.productsService.updateExternalCards();
         this.appService.build$
             .pipe(takeUntil(this.destroy))
             .subscribe(build => {
@@ -90,10 +91,13 @@ export class CardsComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.currentDate = Utils.currentDate;
         merge(
-          this.productsService.cards,
-          this.productsService.externalCards,
+          this.productsService.updateCards$,
+          this.productsService.updateExternalCards$,
         )
-        .pipe(takeUntil(this.destroy))
+        .pipe(
+          // debounceTime(100),
+          takeUntil(this.destroy)
+        )
         .subscribe(() => {
           this.loadAllCards();
         });

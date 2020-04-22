@@ -13,6 +13,7 @@ import { SmsComponent } from './sms/sms.component';
 import { PipeModule } from '../../pipe/pipe.module';
 import { LoginModuleComponent } from './login-module.component';
 import { LoginRoutingModule } from './login-routing.module';
+import { MatomoComponent } from './matomo/matomo.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { LoginRoutingModule } from './login-routing.module';
     LoginModuleComponent,
     LoginComponent,
     SmsComponent,
+    MatomoComponent,
   ],
   providers: [
   ]

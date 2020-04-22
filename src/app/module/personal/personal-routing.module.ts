@@ -7,7 +7,7 @@ const personalRoutes: Routes = [
   {
       path: '',
       pathMatch: 'full',
-      redirectTo: '/deposits',
+      redirectTo: '/cards',
   },
   {
       path: 'cards',
